@@ -300,7 +300,7 @@ var thread = null;
 Initialize();
 
 // 版本更新检查
-var apkurl = "https://gh-proxy.com/https://github.com/sec-an/Better-Auto-XXQG/releases/download/v2.2.0/v2.2.0.apk";
+var apkurl = "https://gh-proxy.com/https://github.com/mjyp207/Better-Auto-XXQG/releases/download/v2.2.0/v2.2.0.apk";
 var latest_version = "2.2.0";
 if (GLOBAL_CONFIG.get("NO_UPDATE", 0) && (app.versionName != latest_version)) {
     ui.update.visibility = 0;
@@ -328,7 +328,7 @@ ui.emitter.on("options_item_selected", (e, item) => {
             alert("关于", "强国助手 v" + latest_version);
             break;
         case "Github":
-            app.openUrl("https://github.com/sec-an/Better-Auto-XXQG");
+            app.openUrl("https://github.com/mjyp207/Better-Auto-XXQG");
             break;
         case "V2.33.0下载":
             app.openUrl("https://android-apps.pp.cn/fs08/2021/12/28/3/110_f37c420b0944cb7b9f60a2ad9b5518d2.apk?yingid=web_space&packageid=500730793&md5=664bb7bdcae57be189fc86100f4371c4&minSDK=21&size=191654161&shortMd5=1fee0bd160d08108a9d9e5f4773ce741&crc32=3879122865&did=ad484a175e19d0928044435e24bf03cb");
@@ -654,11 +654,11 @@ function startDownload(url) {
 
 function getScript(choice) {
     let url_prefix = [
-        'https://v.sec-an-cf.top/gh/raw/sec-an/Better-Auto-XXQG/main/',
-        'https://gh-proxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/',
-        "https://ghproxy.com/https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/",
-        'https://cdn.jsdelivr.net/gh/sec-an/Better-Auto-XXQG@main/',
-        'https://raw.githubusercontent.com/sec-an/Better-Auto-XXQG/main/',
+        'https://v.mjyp207-cf.top/gh/raw/mjyp207/Better-Auto-XXQG/main/',
+        'https://gh-proxy.com/https://raw.githubusercontent.com/mjyp207/Better-Auto-XXQG/main/',
+        "https://ghproxy.com/https://raw.githubusercontent.com/mjyp207/Better-Auto-XXQG/main/",
+        'https://cdn.jsdelivr.net/gh/mjyp207/Better-Auto-XXQG@main/',
+        'https://raw.githubusercontent.com/mjyp207/Better-Auto-XXQG/main/',
     ];
     for (var i = 0; i < url_prefix.length; i++) {
         try {
