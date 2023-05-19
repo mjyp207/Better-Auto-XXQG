@@ -280,23 +280,23 @@ function do_pinglun() {
   content_list = content_list[random(0, content_list.length - 1)];
   content_list || (fTips('评论内容不可设置为空，已重置为"不忘初心，牢记使命"'), content_list = "不忘初心，牢记使命");
   classNameEndsWith("EditText").findOne().setText(content_list);
-  sleep(1000);
+  sleep(2000);
   text("发布").findOne().click();
-  sleep(1000);
+  sleep(2000);
   text("删除").findOne().click();
-  sleep(1000);
+  sleep(2000);
   text("确认").findOne().click();
-  sleep(1000);
+  sleep(2000);
   //   // 下面是分享
   //   for (let i=0; i<2; i++) {
   //     text_edit.findOne().parent().child(3).click();
-  //     sleep(500);
+  //     sleep(1500);
   //     textContains("学习强国").findOne().parent().click();
-  //     sleep(500);
+  //     sleep(1500);
   //     text("创建新的聊天").waitFor();
-  //     sleep(1000);
+  //     sleep(2000);
   //     back();
-  //     sleep(1000);
+  //     sleep(2000);
   //   }
   // 回到首页
   back();
@@ -661,13 +661,13 @@ function do_meizhou() {
   }
   // 循环结束完成答题
   text("返回").findOne().click();
-  sleep(1000);
+  sleep(2000);
   back();
   text("每周答题").waitFor();
-  sleep(1000);
+  sleep(2000);
   back();
   text("我要答题").waitFor();
-  sleep(1000);
+  sleep(2000);
   back();
   text("我的").waitFor();
   ran_sleep();
@@ -726,7 +726,7 @@ function do_zhuanxiang() {
       for (i = 0; i < 15; i++) {
         scoll.scrollForward();
         // 不加延迟会很卡
-        sleep(300);
+        sleep(600);
       }
     }
     text("开始答题").findOne().click();
@@ -831,7 +831,7 @@ function do_tiaozhan() {
       //log(que_txt);
     } catch (p) {
       log("error1:", p);
-      sleep(500);
+      sleep(1500);
       continue;
     }    
     // 获取答案列表，可能找到多个答案
@@ -909,7 +909,7 @@ function do_duizhan1(renshu) {
     fSet("title", "双人对战");
     fInfo("等待随机匹配");
     text("随机匹配").waitFor();
-    sleep(1000);
+    sleep(2000);
     let match = text("随机匹配").findOne().parent().child(0);
     do {
       fInfo("点击：" + match.click());
@@ -922,7 +922,7 @@ function do_duizhan1(renshu) {
     // 等待开始比赛并点击
     fInfo("等待开始比赛");
     text("开始比赛").waitFor();
-    sleep(1000);
+    sleep(2000);
     let start_click = text("开始比赛").findOne().click();
     fInfo("点击：" + start_click);
   }
@@ -954,13 +954,13 @@ function do_duizhan1(renshu) {
       while (true) {
         // 检测是否结束并退出
         if (text("继续挑战").exists()) {
-          sleep(1000);
+          sleep(2000);
           let tz_click = text("继续挑战").findOne().click();
           fInfo("点击继续挑战:" + tz_click);
-          sleep(1500);
+          sleep(3000);
           back();
           if (renshu == 2) {
-            sleep(1000);
+            sleep(2000);
             fInfo("查找退出按钮");
             if (fast_mode) {
               winReshow();
@@ -968,7 +968,7 @@ function do_duizhan1(renshu) {
             var exit_click = text("退出").findOne().click();
             fInfo("点击退出:" + exit_click);
           }
-          sleep(1000);
+          sleep(2000);
           text("登录").waitFor();
           ran_sleep();
           return true;
@@ -984,13 +984,13 @@ function do_duizhan1(renshu) {
     } else if (!err_flag) {
       err_flag = true;
       if (text("继续挑战").exists()) {
-        sleep(1000);
+        sleep(2000);
         let tz_click = text("继续挑战").findOne().click();
         fInfo("点击继续挑战:" + tz_click);
-        sleep(1500);
+        sleep(3000);
         back();
         if (renshu == 2) {
-          sleep(1000);
+          sleep(2000);
           fInfo("查找退出按钮");
           if (fast_mode) {
             winReshow();
@@ -998,7 +998,7 @@ function do_duizhan1(renshu) {
           var exit_click = text("退出").findOne().click();
           fInfo("点击退出:" + exit_click);
         }
-        sleep(1000);
+        sleep(2000);
         text("登录").waitFor();
         ran_sleep();
         return true;
@@ -1008,15 +1008,15 @@ function do_duizhan1(renshu) {
     if (!listview) {
       log("找不到listview");
       err_flag = false;
-      sleep(200);
+      sleep(400);
       continue;
     }
-    sleep(100); // 追求极限速度，不知道会不会出错
+    sleep(500); // 追求极限速度，不知道会不会出错
     let view_d28 = className("android.view.View").depth(28).indexInParent(0).findOne(1000);
     if (!view_d28) {
       toastLog("找不到view_d28");
       err_flag = false;
-      sleep(200);
+      sleep(400);
       continue;
     }
     // 根据父框的孩子数
@@ -1033,7 +1033,7 @@ function do_duizhan1(renshu) {
       toastLog("找不到框体");
       log(view_d28.childCount(), view_d28.bounds());
       err_flag = false;
-      sleep(200);
+      sleep(400);
       continue;
     }
     // 查找选项个数
@@ -1041,7 +1041,7 @@ function do_duizhan1(renshu) {
     if (!radio_num) {
       log("找不到选项");
       err_flag = false;
-      sleep(200);
+      sleep(400);
       continue;
     }
     //fTips("开始识别题目");
@@ -1126,7 +1126,7 @@ function do_duizhan1(renshu) {
           let is_click = className("android.widget.RadioButton").findOnce(idx).parent().click();
           log(is_click);
           if (!is_click) {
-            sleep(200);
+            sleep(1000);
             log(className("android.widget.RadioButton").findOnce(idx).parent().click());
           }
           num++;
@@ -1150,7 +1150,7 @@ function do_duizhan1(renshu) {
     } catch (e) {
       log("error2:", e);
       err_flag = false;
-      sleep(200);
+      sleep(400);
       continue;
     }
     let xuanxiang_list = className("android.widget.ListView").findOne(1000);
@@ -1163,7 +1163,7 @@ function do_duizhan1(renshu) {
     if (!xuanxiang_list || !xuanxiang_list.parent().childCount() || !xuanxiang_list.parent().child(0)) {
       log("xuan_box is null");
       err_flag = false;
-      sleep(200);
+      sleep(400);
       continue;
     }
     log("开始截选项");
@@ -1194,7 +1194,7 @@ function do_duizhan1(renshu) {
     if (!allx_txt) {
       log("识别不出选项文本，可能被禁止截图");
       err_flag = false;
-      sleep(200);
+      sleep(400);
       continue;
     }
     img.recycle();
@@ -1229,7 +1229,7 @@ function do_duizhan1(renshu) {
     if (!xuan_txt_list) {
       log("识别不出选项");
       err_flag = false;
-      sleep(200);
+      sleep(400);
       continue;
     }
     if (xuan_txt_list && xuan_txt_list.length != radio_num) {
@@ -1277,7 +1277,7 @@ function do_duizhan1(renshu) {
           } catch (e1) {
             log("error3:", e1);
             err_flag = false;
-            sleep(200);
+            sleep(400);
             continue;
           }
         }
@@ -1312,14 +1312,14 @@ function dacuo(renshu) {
     // 点击进入双人对战
     entry_jifen_project("双人对战");
     text("随机匹配").waitFor();
-    sleep(1000);
+    sleep(2000);
     text("随机匹配").findOne().parent().child(0).click();
   } else if (renshu == 4) {
     // 点击进入四人赛
     entry_jifen_project("四人赛");
     // 等待开始比赛并点击
     fInfo("等待开始比赛");
-    sleep(1000);
+    sleep(2000);
     let start_click = text("开始比赛").findOne().click();
     log("点击：" + start_click);
   }
@@ -1336,9 +1336,9 @@ function dacuo(renshu) {
         // 检测是否结束并退出
         if (text("继续挑战").exists()) {
           fInfo("本轮结束");
-          sleep(1000);
+          sleep(2000);
           text("继续挑战").findOne().click();
-          sleep(1500);
+          sleep(3000);
           back();
           if (renshu == 2) {
             text("退出").findOne().click();
@@ -1353,14 +1353,14 @@ function dacuo(renshu) {
       }
       // 直到过渡界面消失，再匹配下一题
       //log("等待题号过渡");
-      while (text("第" + num + "题").exists()) {} //sleep(100);
+      while (text("第" + num + "题").exists()) {} //sleep(200);
     } else if (!err_flag) {
       err_flag = true;
       if (text("继续挑战").exists()) {
         fInfo("本轮结束");
-        sleep(1000);
+        sleep(2000);
         text("继续挑战").findOne().click();
-        sleep(1500);
+        sleep(3000);
         back();
         if (renshu == 2) {
           text("退出").findOne().click();
@@ -1376,10 +1376,10 @@ function dacuo(renshu) {
     if (!listview) {
       //log("找不到listview");
       err_flag = false;
-      sleep(200);
+      sleep(400);
       continue;
     }
-    sleep(100); // 追求极限速度，不知道会不会出错
+    sleep(400); // 追求极限速度，不知道会不会出错
     //log("find view_d28");
     // listview父框体
     let view_d28 = className("android.view.View").depth(28).indexInParent(0).findOne(1000);
@@ -1388,7 +1388,7 @@ function dacuo(renshu) {
       //log('far:', listview.parent());
       //log('garfa', listview.parent().parent());
       err_flag = false;
-      sleep(200);
+      sleep(400);
       continue;
     }
     if (view_d28.childCount() > 0) {
@@ -1400,7 +1400,7 @@ function dacuo(renshu) {
       toastLog("找不到框体内容");
       //log(view_d28.childCount(), view_d28.bounds());
       err_flag = false;
-      sleep(200);
+      sleep(400);
       continue;
     }
     let idx_dict = {
@@ -1419,7 +1419,7 @@ function dacuo(renshu) {
     } catch (e) {
       //log("error1:", e);
       err_flag = false;
-      sleep(200);
+      sleep(400);
       continue;
     }
     num++;
@@ -1448,7 +1448,7 @@ function do_dingyue() {
   let total_click = 0;
   for (let tab of tab_clt) {
     tab.click();
-    sleep(500);
+    sleep(1000);
     // 左方分类
     let zuo_clt = className("android.view.View").depth(14).findOne().children();
     for (let zuo of zuo_clt) {
@@ -1456,7 +1456,7 @@ function do_dingyue() {
         zuo = zuo_clt[zuo_clt.length - 1];
       }
       zuo.click();
-      sleep(500);
+      sleep(1000);
       // 右方列表
       className("android.view.View").depth(14).waitFor();
       let you_clt = className("android.view.View").depth(14).findOnce(1);
@@ -1494,11 +1494,11 @@ function do_dingyue() {
           //if (pot && dingyue.bounds().bottom < device_h) {
           if (pot) {
             fInfo("找到一个订阅");
-            sleep(1000);
+            sleep(2000);
             let is_click = dingyue.click();
             fInfo("点击：" + is_click);
             //click(dingyue.bounds().centerX(), dingyue.bounds().centerY());
-            sleep(1000);
+            sleep(2000);
             //click(pot.x, pot.y+5);
             total_click += 1;
           }
@@ -1512,7 +1512,7 @@ function do_dingyue() {
         }
         //img.recycle();
         let scr_result = you_clt.scrollForward();
-        sleep(500);
+        sleep(1500);
         //         swipe(device_w*0.6, device_h*0.8, device_w*0.6, device_h*0.3, 800);
         //         while (desc("加载中").exists()) { sleep(1000); }
       }
@@ -1544,7 +1544,7 @@ function do_bendi() {
   let txt = banner.child(0).child(1).text();
   banner.child(0).click();
   className("android.widget.TextView").depth(11).text(txt).waitFor();
-  sleep(1500);
+  sleep(2000);
   back();
   ran_sleep();
   jifen_init();
@@ -2112,7 +2112,7 @@ function restart(restart_flag) {
       //当出现已作答时，点击最后一个未作答
       while (!text("已作答").exists()) {
         depth(21).scrollable().findOne().scrollForward();
-        sleep(200);
+        sleep(400);
       }
       var clt = text("未作答").find();
       clt[clt.length - 1].parent().click();
@@ -2590,9 +2590,9 @@ function xxqg(userinfo) {
   back();
   b = 1;
   if (2 != meizhou) {
-    if (toastLog("每周答题开始"), text("我的").findOne().click(), sleep(1000), text("我要答题").findOne(3000)) {
+    if (toastLog("每周答题开始"), text("我的").findOne().click(), sleep(2000), text("我要答题").findOne(3000)) {
       text("我要答题").findOne().parent().click();
-      sleep(1000);
+      sleep(2000);
       for (b = do_meizhou(); !b;) b = do_meizhou();
       text("我的").waitFor();
       b || fError("每周答题可能由于识别错误、包含视频题而不能满分，请手动作答")
